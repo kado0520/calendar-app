@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>画面2</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="index2.js" defer></script> <!-- deferを追加 -->
+</head>
+
+<body>
+    <h1>スケジュール登録</h1>
+    <button class="go-to-page1" id="go-to-page1">画面1に戻る</button>
+    <h2>タイトル:<br><input type="text" name="title" size="40" class="text-title">
+    </h2>
+    <h2>種別<select name="pref">
+            <option value="null"></option>
+            <option value="baito">バイト</option>
+            <option value="asobi">遊び</option>
+            <option value="sonota">その他</option>
+        </select></h2>
+    <h2>日付</h2>
+    <div class="toggle-container">
+        <input type="checkbox" id="toggle" class="toggle-input">
+        <label for="toggle" class="toggle-label"></label>
+    </div>
+    <div class="date-picker-container">
+        <input type="text" id="date-input" placeholder="日付を選択" readonly>
+        <div id="calendar" class="calendar"></div>
+    </div>
+    <p id="selected-date">選択された日付: なし</p>
+    <h2>時間
+        <input type="time" class="ddd" name="bbb" value="00:00">
+        <input type="time" class="aaa" name="ddd" value="00:00">
+    </h2>
+    <h2>詳細:<br><textarea name="comment" cols="40" rows="8"></textarea></h2>
+
+    <h1 id="dateInfo">Selected date will appear here</h1> <!-- この行を追加 -->
+
+
+</body>
+
+</html>

@@ -1,0 +1,436 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #2E2E2E;
+    color: white;
+}
+
+
+/* 開くボタン */
+.menu-open {
+    position: fixed;
+    right: 1rem;
+    top: 1rem;
+    z-index: 4;
+    padding: .5rem 1rem;
+    border: 1px solid var(--brown);
+    border-radius: 50%;
+    height: 4rem;
+    width: 4rem;
+    transition: .4s;
+}
+
+/*閉じるボタン*/
+.menu-close {
+    position: fixed;
+    right: 1rem;
+    top: 1rem;
+    z-index: 4;
+    padding: .5rem 1rem;
+    border: 1px solid var(--brown);
+    border-radius: 50%;
+    height: 4rem;
+    width: 4rem;
+    transition: .4s;
+}
+
+#menu-panel {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 4;
+    padding: 8rem 2rem 2rem;
+    width: max(32vw, 20rem);
+    height: 100vh;
+    background-color: gray;
+    transform: translateX(100%);
+    /* 初期状態は右側に隠す */
+    transition: transform 1s ease;
+}
+
+
+.menu-list {
+    /* list-style: none; */
+    padding: 0;
+    margin: 0;
+}
+
+.menu-list li {
+    margin: 1.5rem 0;
+}
+
+.menu-list a {
+    color: var(--light-green);
+    /* text-decoration: none; */
+    font-size: 2rem;
+}
+
+.select {
+    background-color: #4F4F4F;
+    color: white;
+}
+
+
+.yearmonth {
+    color: #51e373;
+}
+
+.week {
+    display: flex;
+    justify-content: space-between;
+    width: 560px;
+    margin-bottom: 20px;
+    background-color: white;
+}
+
+.week-day {
+    width: 80px;
+    text-align: center;
+    font-weight: bold;
+    border: 1px solid black;
+    background-color: #1E1E1E;
+}
+
+.main {
+    display: flex;
+}
+
+.p {
+    width: auto;
+    height: 30px;
+}
+
+.prev-month {
+    color: white;
+    background-color: #1E1E1E;
+}
+
+.next-month {
+    color: white;
+    background-color: #1E1E1E;
+}
+
+.check {
+    color: white;
+    background-color: #1E1E1E;
+}
+
+.stage {
+    display: flex;
+    flex-wrap: wrap;
+    /* margin: 60px; */
+    width: 561px;
+    height: 481px;
+    /* background-color: black; */
+}
+
+.square {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    border: solid black;
+    border-width: 0 1px 1px 0;
+    cursor: pointer;
+    ;
+}
+
+.square:nth-child(-n + 7) {
+    border-width: 1px 1px 1px 0;
+    height: 81px;
+}
+
+.square:nth-child(7n + 1) {
+    border-width: 0 1px 1px 1px;
+    width: 81px;
+}
+
+.square:first-child {
+    border-width: 1px;
+    width: 81px;
+    height: 81px;
+}
+
+#square-template {
+    display: none;
+}
+
+.on-cursor {
+    background-color: #4F4F4F;
+}
+
+.today {
+    background-color: gray;
+}
+
+.day {
+    position: relative;
+}
+
+.schedule-stage {
+    position: relative;
+    width: 80px;
+    height: 56px;
+}
+
+
+#dialog {
+    width: 561px;
+    height: 481px;
+    color: white;
+    background-color: #2E2E2E;
+}
+
+#dialog .inner {
+    padding: 2em;
+    color: white;
+    background-color: #2E2E2E;
+}
+
+#dialog-lavel {
+    color: white;
+    background-color: #1E1E1E
+}
+
+.schedule-btn {
+    width: 150px;
+    height: 50px;
+    position: absolute;
+    right: 40px;
+    bottom: 20px;
+    color: white;
+    background-color: #12409d
+}
+
+.cancel-btn {
+    size: 40px;
+    position: absolute;
+    left: 40px;
+    bottom: 20px;
+    padding: auto;
+    color: white;
+    background-color: #1E1E1E
+}
+
+#schedule-dialog {
+    padding: 0;
+}
+
+#schedule-dialog {
+    width: 561px;
+    height: 481px;
+    color: white;
+    background-color: #2E2E2E;
+}
+
+#schedule-dialog .inner2 {
+    padding: 1em;
+}
+
+.title {
+    background-color: #4F4F4F;
+    color: white;
+}
+
+.toggle {
+    display: flex;
+}
+
+.all-day {
+    width: 40px;
+    height: 20px;
+    background-color: lightgray;
+    border-radius: 10px;
+    position: relative;
+    cursor: pointer;
+    transition: background-color .2s ease-in-out;
+}
+
+.all-day.active {
+    background-color: #51e373;
+}
+
+.all-day-s {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    position: absolute;
+    background-color: white;
+    top: 0;
+    bottom: 0;
+    left: 2px;
+    margin: auto;
+    box-shadow: 1px 1px 7px #b7b7b7, -1px -1px -1px #cecece inset;
+    transition: left .3s ease-in-out;
+}
+
+.start-time {
+    color: white;
+    background-color: #4F4F4F;
+}
+
+.end-time {
+    color: white;
+    background-color: #4F4F4F;
+}
+
+.start-date-time {
+    color: white;
+    background-color: #4F4F4F;
+}
+
+.end-date-time {
+    color: white;
+    background-color: #4F4F4F;
+}
+
+
+.all-day-s.active {
+    left: 22px;
+}
+
+.over-day {
+    width: 40px;
+    height: 20px;
+    background-color: lightgray;
+    border-radius: 10px;
+    position: relative;
+    cursor: pointer;
+    transition: background-color .2s ease-in-out;
+}
+
+.over-day.active {
+    background-color: #51e373;
+}
+
+.over-day-s {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    position: absolute;
+    background-color: white;
+    top: 0;
+    bottom: 0;
+    left: 2px;
+    margin: auto;
+    box-shadow: 1px 1px 7px #b7b7b7, -1px -1px -1px #cecece inset;
+    transition: left .3s ease-in-out;
+}
+
+.over-day-s.active {
+    left: 22px;
+}
+
+.none {
+    display: none;
+}
+
+.detail {
+    margin-top: 30px;
+    width: 400px;
+    height: 50px;
+    background-color: #4F4F4F;
+    overflow-wrap: break-word;
+    color: white;
+}
+
+
+.decide {
+    width: 150px;
+    height: 50px;
+    position: absolute;
+    right: 40px;
+    bottom: 20px;
+    color: white;
+    background-color: #12409d
+}
+
+.previewElement {
+    color: white;
+    text-decoration: underline;
+    cursor: pointer
+}
+
+.previewElement-hovered {
+    color: #64B5F6;
+    text-decoration: underline;
+    cursor: pointer
+}
+
+
+.d {
+    position: relative;
+    top: 40px;
+    left: 65px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: white;
+}
+
+.pass {
+    color: white;
+    background-color: #4F4F4F;
+}
+
+.save {
+    color: white;
+    background-color: #1E1E1E;
+}
+
+.call {
+    color: white;
+    background-color: #1E1E1E;
+}
+
+.clear {
+    color: white;
+    background-color: #1E1E1E;
+}
+
+.all-clear {
+    color: white;
+    background-color: blue;
+}
+
+.preview-dialog {
+    width: 561px;
+    height: 481px;
+    color: white;
+    background-color: #2E2E2E;
+}
+
+.edit {
+    width: 150px;
+    height: 50px;
+    position: absolute;
+    right: 40px;
+    bottom: 20px;
+    color: white;
+    background-color: #12409d
+}
+
+.exit {
+    size: 40px;
+    position: absolute;
+    left: 40px;
+    bottom: 20px;
+    padding: auto;
+    color: white;
+    background-color: #1E1E1E
+}
+
+.remove {
+    position: absolute;
+    right: 210px;
+    bottom: 20px;
+    color: white;
+    background-color: red;
+}
