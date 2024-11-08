@@ -1145,6 +1145,7 @@ window.onload = () => {
             alert('passを入力してください')
             return
         }
+        alert('パス: ' + pass.value + ' が保存されました');
         localStorage.removeItem(pass.value)
         let localObj = JSON.stringify(dateObjects)
         localStorage.setItem(pass.value, localObj)
@@ -1184,5 +1185,6 @@ window.onload = () => {
             alert('初期化しました')
         }
     })
+
 
 }

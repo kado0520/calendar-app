@@ -190,6 +190,8 @@ body {
 
 #dialog .inner {
     padding: 2em;
+    width: 557px;
+    height: 477px;
     color: white;
     background-color: #2E2E2E;
 }
@@ -291,6 +293,15 @@ body {
     background-color: #4F4F4F;
 }
 
+.start-date {
+    color: white;
+    background-color: #4F4F4F;
+}
+
+.end-date {
+    color: white;
+    background-color: #4F4F4F;
+}
 
 .all-day-s.active {
     left: 22px;
